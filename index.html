@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        //model
+        var txt11 = "bob";
+        var txt22 = "bob";
+        var txt33 = "bob";
+        var infoDiv = "";
+        
+        
+
+        //view
+        updateView()
+        function updateView() {
+            let html = /* html */`
+                <p>Ferdighet 9b - Valgsetninger - Sammenligne to tekster</p>
+                <div>${infoDiv}</div>
+                <div type="text" id="kank1">${txt11}</div>
+                <div type="text" id="kank2">${txt22}</div>
+                <div type="text" id="kank3">${txt33}</div>
+                <p>Endre på tekstene! (Prøv også å fylle ut tall: 11, 101, 102)</p>
+                <input type="text" oninput="txt11 = this.value"/><button onclick="updateviewbutton()">add new name</button><br />
+                <input type="text" oninput="txt22 = this.value"/><button onclick="updateviewbutton()">add new name</button><br />
+                <input type="text" oninput="txt33 = this.value"/><button onclick="updateviewbutton()">add new name</button><br />
+                `;
+
+            document.getElementById('app').innerHTML = html;
+        }
+        //controller
+        findFirst();
+
+        function findFirst() {
+            if (txt11 == txt22) infoDiv += 'Tekst 1 og 2 er like<br/>';
+            if (txt11 != txt22) infoDiv += '<del>Tekst 1 og 2 er like</del><br/>';
+
+            //if (txt1 == txt2) infoDiv.innerHTML += 'Tekst 1 og 2 er like<br/>';
+            //else infoDiv.innerHTML += '<del>Tekst 1 og 2 er like</del><br/>';
+
+            if (txt11 == txt33) infoDiv += 'Tekst 1 og 3 er like<br/>';
+            if (txt11 != txt33) infoDiv += '<del>Tekst 1 og 3 er like</del><br/>';
+            if (txt33 == txt22) infoDiv += 'Tekst 2 og 3 er like<br/>';
+            if (txt33 != txt22) infoDiv += '<del>Tekst 2 og 3 er like</del><br/>';
+
+            infoDiv += 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
+            if (txt11 <= txt22) {
+                if (txt33 <= txt11) infoDiv += txt33;
+                else infoDiv += txt11;
+            } else {
+                if (txt33 <= txt22) infoDiv += txt33;
+                else infoDiv += txt22;
+            }
+            updateView();
+        }
+        findFirst11()
+       function findFirst11() {
+            txt11 = document.getElementById("txt1").value;
+            
+            
+        }
+        findFirst12()
+        function findFirst12() {
+            txt22 = document.getElementById("txt2").value;
+            
+            
+        }
+        findFirst13()
+        function findFirst13() {
+             txt33 = document.getElementById("txt3").value;
+             
+             
+            
+        }
+        function updateviewbutton(){
+            
+            function findFirst() {
+            if (txt11 == txt22) infoDiv += 'Tekst 1 og 2 er like<br/>';
+            if (txt11 != txt22) infoDiv += '<del>Tekst 1 og 2 er like</del><br/>';
+
+            //if (txt1 == txt2) infoDiv.innerHTML += 'Tekst 1 og 2 er like<br/>';
+            //else infoDiv.innerHTML += '<del>Tekst 1 og 2 er like</del><br/>';
+
+            if (txt11 == txt33) infoDiv += 'Tekst 1 og 3 er like<br/>';
+            if (txt11 != txt33) infoDiv += '<del>Tekst 1 og 3 er like</del><br/>';
+            if (txt33 == txt22) infoDiv += 'Tekst 2 og 3 er like<br/>';
+            if (txt33 != txt22) infoDiv += '<del>Tekst 2 og 3 er like</del><br/>';
+
+            infoDiv += 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
+            if (txt11 <= txt22) {
+                if (txt33 <= txt11) infoDiv += txt33;
+                else infoDiv += txt11;
+            } else {
+                if (txt33 <= txt22) infoDiv += txt33;
+                else infoDiv += txt22;
+            }
+            
+        }
+        findFirst();
+        updateView();
+        }
+    </script>
+</body>
+
+</html>
